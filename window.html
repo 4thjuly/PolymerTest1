@@ -5,12 +5,42 @@
   <meta charset="utf-8">
   <script src="polymer-build-v0.0.20130808/platform.min.js"></script>
   <script src="window.js"></script>
-  <title>Packaged App Test</title>
+  <title>Polymer App Test</title>
   <link href="app.css" rel="stylesheet">
+  <link href="polymer-elements/polymer-grid-layout.html" rel="import">
 </head>
 
 <body>
-  <div>Package App Test</div>
+  
+  <polymer-element name="MainUI">
+    <template>
+      <polymer-grid-layout nodes="{{nodes}}" layout="{{layout}}"></polymer-grid-layout>
+      
+      <panel id="header">Header</panel>
+      <panel id="content" flex>Content</panel>
+
+      <style>
+        panel {
+          display: inline-block;
+          border: 4px dotted lightblue;
+          padding: 16px;
+        }
+      </style>
+    </template>
+
+    <script>
+      Polymer('MainUI', {
+        ready: function() {
+          this.nodes = [this.$.header, this.$.content];
+          this.layout = [
+            [1],
+            [2]
+          ];
+        }
+      });
+    </script>
+  </polymer-element>
+  
 </body>
 
 </html>
