@@ -1,3 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Do something
+  
+  Polymer('MainUI', {
+    ready: function() {
+      this.nodes = [this.$.header, this.$.content];
+      this.layout = [
+        [1],
+        [2]
+      ];
+    }
+  });
+  
 });
